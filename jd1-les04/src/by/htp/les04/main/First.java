@@ -232,5 +232,79 @@ public class First {
 		int[] masP = DecompositionTask01.formPrimemArray(numA, numB);
 		DecompositionTask01.printMas(masP);
 
+		// Натуральное число, в записи которого n цифр, называется числом Армстронга,
+		// если сумма его цифр, возведенная в степень n, равна самому числу. Найти все
+		// числа Армстронга от 1 до k. Для решения задачи использовать декомпозицию.
+
+		int k1 = 100;
+
+		int countA = 0;
+
+		for (int i = 0; i <= k1; i++) {
+			if (DecompositionTask01.isArmstrongDigit(i)) {
+				countA++;
+			}
+		}
+
+		int[] masArmstrong = new int[countA];
+		int j = 0;
+		for (int i = 0; i <= k1; i++) {
+			if (DecompositionTask01.isArmstrongDigit(i)) {
+				masArmstrong[j] = i;
+				j++;
+			}
+		}
+		DecompositionTask01.printMas(masArmstrong);
+
+		// Найти все натуральные n-значные числа, цифры в которых образуют строго
+		// возрастающую последовательность (например, 1234, 5789). Для решения задачи
+		// использовать декомпозицию.
+
+		int nZ = 4;
+
+		int countZ = 0;
+
+		int nStart = (int) Math.pow(10, nZ - 1);
+		int nFinish = (int) Math.pow(10, nZ);
+
+		for (int i = nStart; i < nFinish; i++) {
+			if (DecompositionTask01.isIncreasingSequence(i)) {
+				countZ++;
+			}
+		}
+
+		int[] masS = new int[countZ];
+		int g = 0;
+		for (int i = nStart; i < nFinish; i++) {
+			if (DecompositionTask01.isIncreasingSequence(i)) {
+				masS[g] = i;
+				g++;
+			}
+		}
+		DecompositionTask01.printMas(masS);
+
+		// Написать программу, определяющую сумму n - значных чисел, содержащих только
+		// нечетные цифры. Определить также, сколько четных цифр в найденной сумме. Для
+		// решения задачи использовать декомпозицию.
+
+		int p = 1;
+
+		int sumOfEvenNum = 0;
+		int countOfOddElemInSum = 0;
+
+		int pStart = (int) Math.pow(10, p - 1);
+		int pFinish = (int) Math.pow(10, p);
+
+		for (int i = pStart; i < pFinish; i++) {
+			if (DecompositionTask01.isAllEvenNum(i)) {
+				sumOfEvenNum = sumOfEvenNum + i;
+			}
+		}
+
+		countOfOddElemInSum = DecompositionTask01.calcOddElem(sumOfEvenNum);
+
+		System.out.println("сумма чисел, содержащих только нечетные цифры, равна " + sumOfEvenNum);
+		System.out.println("количество четных цифр в найденной сумме равно " + countOfOddElemInSum);
+
 	}
 }

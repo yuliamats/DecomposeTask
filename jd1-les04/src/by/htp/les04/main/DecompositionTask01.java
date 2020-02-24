@@ -396,5 +396,65 @@ public class DecompositionTask01 {
 		}
 		return flag;
 	}
+	
+	public static boolean isArmstrongDigit(int num) {
+		boolean flag = true;
+        int count = countNum(num);		
+		int sum = sumOfNum(num);
+		int powNum = (int) Math.pow(sum, count);
 
+		if (powNum != num) {
+			flag = false;
+		}
+		return flag;
+	}
+
+	public static int sumOfNum(int num) {
+		int sum = 0;
+
+		int[] mas1 = numInMas(num);
+
+		for (int i = 0; i < mas1.length; i++) {
+			sum = sum + mas1[i];
+					}
+		return sum;
+	}
+	
+	public static boolean isIncreasingSequence(int num) {
+		boolean flag = true;
+        
+		int[] mas1 = numInMas(num);
+        
+		for (int i = 0; i < mas1.length - 1; i++) {
+			if (mas1[i] < mas1[i + 1]) {
+				flag = false;
+				break;
+			}
+		}
+     return flag;
+	}
+	
+	public static boolean isAllEvenNum(int num) {
+    boolean flag = true;
+        
+	int[] mas1 = numInMas(num);
+	for (int i = 0; i < mas1.length; i++) {
+		if (mas1[i] % 2 == 0) {
+			flag = false;
+			break;
+		}
+	}
+    return flag;
+}
+	public static int calcOddElem(int num) {
+	    int count = 0;
+	        
+		int[] mas1 = numInMas(num);
+		for (int i = 0; i < mas1.length; i++) {
+			if (mas1[i] % 2 == 0) {
+				count++;
+			}
+		}
+	    return count;
+	}
 }
